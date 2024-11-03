@@ -21,7 +21,13 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int score)
     {
         _score += score;
-        ScoreChanged.Invoke(score);
+        ScoreChanged.Invoke(_score);
+    }
+
+    public void SubtractScore(int score)
+    {
+        _score -= score;
+        ScoreChanged.Invoke(_score);
     }
 
     private void Awake()
