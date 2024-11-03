@@ -5,11 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource source;
+    [SerializeField, Range(0, 1f)] private float audioVolume = 1f;
     [SerializeField] private GameObject mainPanel;
 
     private void Start()
     {
+        source.volume = audioVolume;
         mainPanel.SetActive(true);
+        source.Play();
     }
 
     public void OnClickBack(GameObject panelToClose)
@@ -22,6 +26,7 @@ public class MainMenuManager : MonoBehaviour
     public void OnClickStart()
     {
         Time.timeScale = 1f;
+        source.Stop();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
