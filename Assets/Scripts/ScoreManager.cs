@@ -30,8 +30,9 @@ public class ScoreManager : MonoBehaviour
         ScoreChanged.Invoke(_score);
     }
 
-    private void Awake()
+    private void Start()
     {
         _score = _startScore;
+        ScoreChanged.Invoke(_score);
     }
 }
