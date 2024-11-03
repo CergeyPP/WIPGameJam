@@ -1,7 +1,13 @@
+using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+
+[Serializable]
+public class LandEvent : UnityEvent { }
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
@@ -12,6 +18,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _airControl = 0.1f;
     [SerializeField] private float _jumpHeight;
     [SerializeField] private AnimationCurve _jumpCurve;
+
+    [Header("События прыжка/приземления")]
+    [Tooltip("Вызывается, когда персонаж совершает прыжок")]
+    public LandEvent JumpedEvent;
+    [Tooltip("Вызывается, когда персонаж приземляется")]
+    public LandEvent LandedEvent;
 
     private CharacterController _cc;
 
@@ -36,6 +48,7 @@ public class CharacterMovement : MonoBehaviour
             RightMoveVector = Vector3.Cross(-camera.transform.forward, Vector3.up);
             ForwardMoveVector = Vector3.Cross(RightMoveVector, Vector3.up);
         }
+
     }
 
     public void OnMove(InputValue context)
@@ -47,6 +60,8 @@ public class CharacterMovement : MonoBehaviour
     {
         if (_bWantToJump || (!_cc.isGrounded && _timeInJump > 0))
         {
+            if (_bWantToJump)
+                JumpedEvent.Invoke();
             MoveInAirByJump();
         }
         else if (!_cc.isGrounded)
@@ -87,20 +102,24 @@ public class CharacterMovement : MonoBehaviour
         float yTranslation = _jumpHeight * (currentJumpHeight - prevJumpHeight);
 
         _cc.Move(horizontalVelocity * Time.fixedDeltaTime + yTranslation * Vector3.up);
+        if (_cc.isGrounded && (_cc.velocity.y < -0.2))
+            LandedEvent.Invoke();
     }
     private void MoveInAirByFall()
     {
         Vector3 horizontalVelocity = CalculateAirHorizontalMovement();
         float yVelocity = _cc.velocity.y;
-        yVelocity += Physics.gravity.y;
+        yVelocity += Physics.gravity.y * Time.fixedDeltaTime;
 
         _cc.Move((horizontalVelocity + Vector3.up * yVelocity) * Time.fixedDeltaTime);
+        if (_cc.isGrounded && (_cc.velocity.y < -0.2))
+            LandedEvent.Invoke();
     }
 
     private void MoveOnGround()
     {
         Vector3 movementDirection = ForwardMoveVector * _inputMovement.y + RightMoveVector * _inputMovement.x;
-        _cc.Move((movementDirection.normalized * _speed + Vector3.down * 0.05f) * Time.fixedDeltaTime);
+        _cc.Move((movementDirection.normalized * _speed + Vector3.down * 0.5f) * Time.fixedDeltaTime);
     }
 
     private Vector3 CalculateAirHorizontalMovement()
