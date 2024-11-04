@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public struct GameEpisode
@@ -42,6 +43,11 @@ public class Gameflow : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) // уеп гмюер, йюй щрн ядекюрэ вепег мнбсч хмоср яхярел, рюй врн осярэ асдер рюй
+        {
+            SceneManager.LoadScene(0);
+        }
+
         _timerValue += Time.deltaTime;
         UpdateTimerText();
 
@@ -71,6 +77,7 @@ public class Gameflow : MonoBehaviour
     private void OnPlayerKilled()
     {
         _gameOverScreen.SetActive(true);
+        AudioManager.Instance.StopMusic();
         Time.timeScale = 0;
     }
 
@@ -117,4 +124,6 @@ public class Gameflow : MonoBehaviour
             pan.SetWarningTime(CurrentEpisode.panWarningDuration);
         }
     }
+
+
 }
