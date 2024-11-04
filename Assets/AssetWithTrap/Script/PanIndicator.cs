@@ -20,19 +20,18 @@ public class PanIndicator : MonoBehaviour
     public float DangerTransitionTime => _dangerTransitionTime;
 
     private Material _panMaterial;
-    private int _emissionPropertyID;
     private Coroutine _currentTransitionCoroutine;
     private bool _isTransitionRunning = false;
 
     private void Awake()
     {
-        _emissionPropertyID = Shader.PropertyToID("_EmissionColor");
+
     }
 
     private void Start()
     {
         _panMaterial = GetComponent<Renderer>().material;
-        _panMaterial.SetColor(_emissionPropertyID, _defaultColor);
+        _panMaterial.color = _defaultColor;
     }
 
     public void PlayWarningTransition()
@@ -62,18 +61,18 @@ public class PanIndicator : MonoBehaviour
     private IEnumerator TransitToColor(Color endColor, float transitionTime)
     {
         _isTransitionRunning = true;
-        Color startColor = _panMaterial.GetColor(_emissionPropertyID);
+        Color startColor = _panMaterial.color;
         Color resultColor = endColor;
         float currentTransitTime = 0;
         while (currentTransitTime < transitionTime)
         {
             Color tempColor = Color.Lerp(startColor, resultColor, currentTransitTime / transitionTime);
-            _panMaterial.SetColor(_emissionPropertyID, tempColor);
+            _panMaterial.color = tempColor;
             currentTransitTime += Time.deltaTime;
             yield return null;
         }
 
-        _panMaterial.SetColor(_emissionPropertyID, resultColor);
+        _panMaterial.color = resultColor;
         _isTransitionRunning = false;
     }
 }
