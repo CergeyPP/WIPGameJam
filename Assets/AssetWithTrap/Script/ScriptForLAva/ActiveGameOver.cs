@@ -26,16 +26,9 @@ internal class ActiveGameOver : MonoBehaviour
     }
     private IEnumerator StayTrap()
     {
-        yield return null;
-        if (IsExit)
-        {
-            GO.SetActive(true);
-            Time.timeScale = 0;
-            IsStay = true;
-        }
-        else if (!IsExit)
-        {
-            IsStay = true;
-        }
+        yield return new WaitForSeconds(0.2f);
+        GO.SetActive(true);
+        Time.timeScale = 0;
+        IsStay = true;
     }
 }
