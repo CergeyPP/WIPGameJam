@@ -24,6 +24,7 @@ public class Taimer : MonoBehaviour
         {
             while (true)
             {
+
                 if (milisec == 59)
                 {
                     sec++;
@@ -39,6 +40,7 @@ public class Taimer : MonoBehaviour
                 TimerText.text = min.ToString("D2") + ":" + sec.ToString("D2") + ":" + milisec.ToString("D2");
                 //  TimerText.text = min.ToString("D2") +" минут" + " : " + sec.ToString("D2") + " секунд";
                 yield return new WaitForSeconds(0.01f);
+
             }
         }
     }
