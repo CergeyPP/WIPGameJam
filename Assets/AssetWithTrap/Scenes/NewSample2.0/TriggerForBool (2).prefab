@@ -96,10 +96,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -248,8 +248,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 8661212644539492092}
     m_Modifications:
     - target: {fileID: 1888346380877061338, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888346380877061338, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888346380877061338, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 3988577902467118636, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
       propertyPath: m_Name
@@ -319,7 +327,9 @@ PrefabInstance:
       propertyPath: m_IncludeLayers.m_Bits
       value: 64
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4933701701149995667, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
+    - {fileID: 4663091260696715236, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4328406557666978966, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
@@ -329,6 +339,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3988577902467118636, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2093041132140966544}
+    - targetCorrespondingSourceObject: {fileID: 3988577902467118636, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3917218719752057210}
   m_SourcePrefab: {fileID: 100100000, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
 --- !u!1 &8133254891573506714 stripped
 GameObject:
@@ -347,6 +360,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0573fe50c54cc284c87cf65236b05dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _colorIndicator: {fileID: 3917218719752057210}
+--- !u!114 &3917218719752057210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133254891573506714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f905521f102abb745994dc512eb94203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materialIndex: 0
+  _defaultColor: {r: 0.23018861, g: 0.23018861, b: 0.23018861, a: 1}
+  _warningColor: {r: 1, g: 0.9601612, b: 0, a: 0}
+  _dangerColor: {r: 1, g: 0, b: 0, a: 0}
+  _defaultTransitionTime: 0.1
+  _warningTransitionTime: 0.2
+  _dangerTransitionTime: 0.4
 --- !u!4 &8905006898798012448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4328406557666978966, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}

@@ -5,16 +5,12 @@ using UnityEngine;
 
 internal class Trup : MonoBehaviour
 {
+    [SerializeField] private PanIndicator _colorIndicator;
     private bool IsTrap = true;
     private bool IsTrap2 = true;
     private bool IsTrap3 = true;
     private bool IsTrap4 = false;
 
-    private Animator animator;
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
     private void RandomTrap()
     {
         if(TaimingTrup.namePlatformM == gameObject.name || TaimingTrup.namePlatform2M == gameObject.name)
@@ -57,20 +53,17 @@ internal class Trup : MonoBehaviour
         // animator.SetTrigger("DefaultTrigger");
         IsTrap3 = false;
         transform.GetChild(0).gameObject.GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(TaimingTrup.Time -0.5f);
-        animator.SetBool("Warning", true);
-        yield return new WaitForSeconds(TaimingTrup.Time -0.5f);
-        animator.SetBool("Warning", false);
-        animator.SetBool("Danger", true);
-        yield return new WaitForSeconds(0.7f);
+
+        _colorIndicator.PlayWarningTransition();
+        yield return new WaitForSeconds(TaimingTrup.Time);
+        _colorIndicator.PlayDangerTransition();
+        yield return new WaitForSeconds(_colorIndicator.DangerTransitionTime);
         transform.GetChild(0).gameObject.GetComponent<Collider>().enabled = true;
         transform.GetChild(1).gameObject.GetComponent<Collider>().enabled = true;
         yield return new WaitForSeconds(0.5f);
         transform.GetChild(0).gameObject.GetComponent<Collider>().enabled = false;
         transform.GetChild(1).gameObject.GetComponent<Collider>().enabled = false;
-        animator.SetBool("Danger", false);
-        animator.SetBool("Default Color", true);
-        animator.SetTrigger("DefaultTrigger");
+        _colorIndicator.PlayDefaultTransition();
         if(IsTrap4)
         {
            

@@ -417,10 +417,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7535019787778116408, guid: d5fa34a364a52934ca67d402a48bff7a, type: 3}
-      propertyPath: m_TagString
-      value: PlayerT
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -980,10 +976,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4286540442817699013, guid: c53e6e7050db5ac4e997aec717d2602d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4317403283058531274, guid: c53e6e7050db5ac4e997aec717d2602d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1067,22 +1059,6 @@ PrefabInstance:
     - target: {fileID: 5481016454104778193, guid: c53e6e7050db5ac4e997aec717d2602d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8297376413358682714, guid: c53e6e7050db5ac4e997aec717d2602d, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8297376413358682714, guid: c53e6e7050db5ac4e997aec717d2602d, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8297376413358682714, guid: c53e6e7050db5ac4e997aec717d2602d, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 8297376413358682714, guid: c53e6e7050db5ac4e997aec717d2602d, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
