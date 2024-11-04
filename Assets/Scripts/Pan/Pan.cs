@@ -13,9 +13,12 @@ public class Pan : MonoBehaviour
     [SerializeField] private float _dangerTime;
 
     public bool IsActive => _isActive;
-    public event Action OnPlayerKilled;
+    public event Action<Pan> Activated;
+    public event Action<Pan> Deactivated;
+    public event Action PlayerKilled;
 
     private GameObject _player;
+    public GameObject StayingPlayer => _player;
     private bool _isActive;
 
     private bool _isDanger;
@@ -32,13 +35,23 @@ public class Pan : MonoBehaviour
         _player = other.gameObject;
         Debug.Log($"Enter {gameObject.name}");
         if (_isDanger)
-            OnPlayerKilled.Invoke();
+            PlayerKilled.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
         _player = null;
         Debug.Log($"Exit {gameObject.name}");
+    }
+
+    public void SetWarningTime(float warningTime)
+    {
+        _warningTime = warningTime;
+    }
+
+    public void SetDangerTime(float dangerTime)
+    {
+        _dangerTime = dangerTime;
     }
 
     public void Activate()
@@ -49,7 +62,7 @@ public class Pan : MonoBehaviour
     public IEnumerator ActivatePanAndDeactivate()
     {
         _isActive = true;
-
+        Activated.Invoke(this);
         _panIndicator.PlayWarningTransition();
         yield return new WaitForSeconds(_warningTime - _panIndicator.DangerTransitionTime);
         _panIndicator.PlayDangerTransition();
@@ -68,10 +81,11 @@ public class Pan : MonoBehaviour
         yield return new WaitForSeconds(_panIndicator.DangerTransitionTime);
 
         _isActive = false;
+        Deactivated.Invoke(this);
     }
 
     private void KillPlayer()
     {
-        OnPlayerKilled.Invoke();
+        PlayerKilled.Invoke();
     }
 }
