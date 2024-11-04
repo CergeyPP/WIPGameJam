@@ -96,10 +96,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -248,8 +248,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 8661212644539492092}
     m_Modifications:
     - target: {fileID: 1888346380877061338, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888346380877061338, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1888346380877061338, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 3988577902467118636, guid: 43106eb5dd372044c992e8634747c4ae, type: 3}
       propertyPath: m_Name

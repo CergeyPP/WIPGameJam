@@ -96,10 +96,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -316,8 +316,28 @@ PrefabInstance:
       value: pan3
       objectReference: {fileID: 0}
     - target: {fileID: 8954446442311020647, guid: 3098632c0efde314b83155fc43629a44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954446442311020647, guid: 3098632c0efde314b83155fc43629a44, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954446442311020647, guid: 3098632c0efde314b83155fc43629a44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954446442311020647, guid: 3098632c0efde314b83155fc43629a44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9678077
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954446442311020647, guid: 3098632c0efde314b83155fc43629a44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.25169086
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954446442311020647, guid: 3098632c0efde314b83155fc43629a44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -29.155
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3320141935023363519, guid: 3098632c0efde314b83155fc43629a44, type: 3}
