@@ -6,6 +6,8 @@ internal class ActiveGameOver : MonoBehaviour
 {
    // [SerializeField] private GameObject player;
     [SerializeField] private GameObject GO;
+    private bool IsStay = true;
+    private bool IsExit = false;
 
     private void OnTriggerStay(Collider other)
     {
