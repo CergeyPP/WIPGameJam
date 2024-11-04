@@ -4,13 +4,9 @@ using UnityEngine;
 
 internal class ActiveCanvas : MonoBehaviour
 {
-    public GameObject GO;
+    public Gameflow gameflow;
     private void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.CompareTag("PlayerT"))
-        {
-            Time.timeScale = 0;
-            GO.SetActive(true);
-        }
+        gameflow.OnPlayerKilled();
     }
 }
