@@ -65,11 +65,14 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        source.Stop();
-        source.clip = clipList[1];
-        source.loop = true;
-        source.Play();
-
+        if(Time.timeScale >= 1)
+        {
+            source.Stop();
+            source.clip = clipList[1];
+            source.loop = true;
+            source.Play();
+        }
+        
         yield return null;
     }
 }
