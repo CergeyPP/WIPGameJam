@@ -6,10 +6,10 @@ internal class ActiveGameOver : MonoBehaviour
 {
    // [SerializeField] private GameObject player;
     [SerializeField] private GameObject GO;
-    private bool IsStay = true;
-    private bool IsExit = true;
+
     private void OnTriggerStay(Collider other)
     {
+
         if (other.gameObject.CompareTag("PlayerT") && IsStay)
         {
             IsStay = false;
@@ -31,4 +31,17 @@ internal class ActiveGameOver : MonoBehaviour
         Time.timeScale = 0;
         IsStay = true;
     }
+
+    //private IEnumerator StayTrap()
+    //{
+    //    yield return null;
+    //    if (IsExit)
+    //    {
+           
+    //    }
+    //    else if (!IsExit)
+    //    {
+    //        IsStay = true;
+    //    }
+    //}
 }
