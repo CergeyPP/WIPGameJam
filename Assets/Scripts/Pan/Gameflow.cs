@@ -74,7 +74,7 @@ public class Gameflow : MonoBehaviour
         _currentPanActiveCount--;
     }
 
-    private void OnPlayerKilled()
+    public void OnPlayerKilled()
     {
         _gameOverScreen.SetActive(true);
         AudioManager.Instance.StopMusic();
