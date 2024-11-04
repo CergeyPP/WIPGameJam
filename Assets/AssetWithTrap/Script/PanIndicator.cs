@@ -15,7 +15,6 @@ public class PanIndicator : MonoBehaviour
     [SerializeField] private float _warningTransitionTime = 0.1f;
     [SerializeField] private float _dangerTransitionTime = 0.1f;
 
-
     public float DefaultTransitionTime => _defaultTransitionTime;
     public float WarningTransitionTime => _warningTransitionTime;
     public float DangerTransitionTime => _dangerTransitionTime;
