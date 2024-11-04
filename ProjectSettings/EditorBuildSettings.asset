@@ -10,8 +10,8 @@ EditorBuildSettings:
     guid: 11d7749084593be41a0894c6b0b5d388
   - enabled: 1
     path: Assets/AssetWithTrap/Scenes/SampleScene.unity
-    guid: f0804392a980949478e2bdc71b8626e1
-  - enabled: 1
+    guid: eea7d8c0dac91424e91446ba2f39d6f4
+  - enabled: 0
     path: Assets/Scenes/CergeyppExampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
