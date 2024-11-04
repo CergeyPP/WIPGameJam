@@ -71,6 +71,7 @@ public class Gameflow : MonoBehaviour
     private void OnPlayerKilled()
     {
         _gameOverScreen.SetActive(true);
+        AudioManager.Instance.StopMusic();
         Time.timeScale = 0;
     }
 
