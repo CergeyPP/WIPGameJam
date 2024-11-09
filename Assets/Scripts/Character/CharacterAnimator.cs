@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class CharacterAnimator : MonoBehaviour
 {
+    [SerializeField] private float _rotationSpeed = 720.0f;
     [SerializeField] private Animator _animator;
     [Header("Animator properties")]
     [SerializeField] private string _speedPropertyName;
@@ -30,10 +31,25 @@ public class CharacterAnimator : MonoBehaviour
         velocity.y = 0;
         float speed = velocity.magnitude;
         _animator.SetFloat(_speedProperty, speed);
+        _animator.SetBool(_landedProperty, _cc.isGrounded);
+
+        if (velocity.magnitude > 0.1)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(velocity.normalized, Vector3.up);
+            Quaternion currentRotation = transform.rotation;
+
+            transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, _rotationSpeed * Time.deltaTime);
+
+        }
     }
 
     public void OnJump()
     {
         _animator.SetTrigger(_jumpProperty);
+    }
+
+    public void OnLanded()
+    {
+       
     }
 }

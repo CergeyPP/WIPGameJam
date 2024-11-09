@@ -54,10 +54,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 7852354126882731879}
   - component: {fileID: 8950449447593425562}
   - component: {fileID: 8821120093571508248}
-  - component: {fileID: 7856638022027785462}
   - component: {fileID: 4260882794775152452}
   m_Layer: 0
   m_Name: Pintogram
@@ -166,28 +165,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7856638022027785462
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5797376785600194418}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &4260882794775152452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +278,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4023614098640041093, guid: da03236dc7b7a9d47af1c43a6a3af072, type: 3}
+  m_Mesh: {fileID: -9003637246883136300, guid: 19704a6d3db24984e80ff1c1a0579c73, type: 3}
 --- !u!4 &4163402699606154118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: da03236dc7b7a9d47af1c43a6a3af072, type: 3}
