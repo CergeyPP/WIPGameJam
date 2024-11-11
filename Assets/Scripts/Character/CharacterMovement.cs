@@ -18,6 +18,10 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _jumpHeight;
     [SerializeField] private AnimationCurve _jumpCurve;
 
+    [SerializeField] private AudioSource source1;
+    [SerializeField] private AudioSource source2;
+    [SerializeField, Range(0f, 0.5f)] private float volumeCoef;
+
     [Header("События прыжка/приземления")]
     [Tooltip("Вызывается, когда персонаж совершает прыжок")]
     public LandEvent JumpedEvent;
@@ -48,6 +52,9 @@ public class CharacterMovement : MonoBehaviour
             ForwardMoveVector = Vector3.Cross(RightMoveVector, Vector3.up);
         }
 
+        source1.volume = AudioManager.Instance.GetVolume(volumeCoef);
+        source2.volume = AudioManager.Instance.GetVolume(volumeCoef);
+        Debug.Log($"s1 volume: {source1.volume}, s2 volume: {source2.volume}");
     }
 
     public void OnMove(InputValue context)

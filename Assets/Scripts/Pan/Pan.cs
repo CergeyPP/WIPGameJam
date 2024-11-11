@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -11,6 +13,9 @@ public class Pan : MonoBehaviour
     [SerializeField] private float _warningTime;
     [Tooltip("Время, когда на сковородку нельзя наступать")]
     [SerializeField] private float _dangerTime;
+
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip[] clips; 
 
     public bool IsActive => _isActive;
     public event Action<Pan> Activated;
@@ -28,6 +33,21 @@ public class Pan : MonoBehaviour
         _player = null;
         _isActive = false;
         _isDanger = false;
+    }
+
+    private void Start()
+    {
+        source.volume = AudioManager.Instance.GetVolume(0.2f);
+        Debug.Log($"Pan volume: {source.volume}");
+        if (clips != null && clips.Length == 2)
+        {
+            source.clip = clips[0];
+            source.loop = false;
+        }
+        else
+        {
+            throw new Exception("CLIPS ARRAY IS NOT CORRECT !!!!");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -74,6 +94,7 @@ public class Pan : MonoBehaviour
         else
         {
             _isDanger = true;
+            source.Play(); // play hot sound
         }
         yield return new WaitForSeconds(_dangerTime);
         _isDanger = false;
@@ -86,6 +107,10 @@ public class Pan : MonoBehaviour
 
     private void KillPlayer()
     {
+        source.Stop();
+        source.clip = clips[1];
+        source.loop = false;
+        source.Play();
         PlayerKilled.Invoke();
     }
 }
