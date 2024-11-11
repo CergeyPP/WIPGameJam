@@ -15,7 +15,6 @@ public class Pan : MonoBehaviour
     [SerializeField] private float _dangerTime;
 
     [SerializeField] private AudioSource source;
-    [SerializeField] private AudioClip[] clips; 
 
     public bool IsActive => _isActive;
     public event Action<Pan> Activated;
@@ -37,17 +36,13 @@ public class Pan : MonoBehaviour
 
     private void Start()
     {
-        source.volume = AudioManager.Instance.GetVolume(0.2f);
+        source.volume = AudioManager.Instance.GetVolume();
         Debug.Log($"Pan volume: {source.volume}");
-        if (clips != null && clips.Length == 2)
-        {
-            source.clip = clips[0];
-            source.loop = false;
-        }
+        if (source.volume >= 0.2f)
+            source.volume = 1f;
         else
-        {
-            throw new Exception("CLIPS ARRAY IS NOT CORRECT !!!!");
-        }
+            source.volume = 0f;
+        source.loop = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -107,10 +102,6 @@ public class Pan : MonoBehaviour
 
     private void KillPlayer()
     {
-        source.Stop();
-        source.clip = clips[1];
-        source.loop = false;
-        source.Play();
         PlayerKilled.Invoke();
     }
 }

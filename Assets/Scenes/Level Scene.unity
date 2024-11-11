@@ -570,8 +570,16 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: b75d14069e91d9748b5bc171ff0ed6bd, type: 3}
     - target: {fileID: 7927004736040034760, guid: e8b3505e87baac940877577acc466dcd, type: 3}
       propertyPath: source2_extraCoef
-      value: -0.25
+      value: -0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 7927004736040034760, guid: e8b3505e87baac940877577acc466dcd, type: 3}
+      propertyPath: clipList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927004736040034760, guid: e8b3505e87baac940877577acc466dcd, type: 3}
+      propertyPath: clipList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2eb6371968c9bf944a69c81fb4dd3fd8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1225,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 1165642583}
     - target: {fileID: 4202021065005604065, guid: d5fa34a364a52934ca67d402a48bff7a, type: 3}
       propertyPath: volumeCoef
-      value: 0.45
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4812166502532892034, guid: d5fa34a364a52934ca67d402a48bff7a, type: 3}
       propertyPath: m_LocalPosition.x

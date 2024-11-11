@@ -90,6 +90,18 @@ public class AudioManager : MonoBehaviour
         source2.Stop();
     }
 
+    public void PlayDeathSound()
+    {
+        StopMusic();
+        source2.clip = clipList[2];
+        source2.loop = false;
+        if (volume >= 0.1f)
+            source2.volume = volume + 0.45f;
+        if (source2.volume > 1f)
+            source2.volume = 1f;
+        source2.Play();
+    }
+
     // Method for non-AudioManager sources
     public float GetVolume(float coef = 0f)
     {

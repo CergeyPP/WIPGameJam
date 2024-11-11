@@ -83,9 +83,6 @@ MonoBehaviour:
   _warningTime: 0
   _dangerTime: 0
   source: {fileID: 4129491348004532194}
-  clips:
-  - {fileID: 8300000, guid: fb691ecdef5e988478ddfb486b5bce2f, type: 3}
-  - {fileID: 8300000, guid: 2eb6371968c9bf944a69c81fb4dd3fd8, type: 3}
 --- !u!82 &4129491348004532194
 AudioSource:
   m_ObjectHideFlags: 0
@@ -96,8 +93,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: fb691ecdef5e988478ddfb486b5bce2f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
