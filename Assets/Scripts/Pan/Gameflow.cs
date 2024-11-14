@@ -78,7 +78,6 @@ public class Gameflow : MonoBehaviour
     {
         _gameOverScreen.SetActive(true);
         AudioManager.Instance.StopMusic();
-        AudioManager.Instance.PlayDeathSound();
         Time.timeScale = 0;
     }
 
