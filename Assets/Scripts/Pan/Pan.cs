@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.Tracing;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -13,8 +11,6 @@ public class Pan : MonoBehaviour
     [SerializeField] private float _warningTime;
     [Tooltip("Время, когда на сковородку нельзя наступать")]
     [SerializeField] private float _dangerTime;
-
-    [SerializeField] private AudioSource source;
 
     public bool IsActive => _isActive;
     public event Action<Pan> Activated;
@@ -32,17 +28,6 @@ public class Pan : MonoBehaviour
         _player = null;
         _isActive = false;
         _isDanger = false;
-    }
-
-    private void Start()
-    {
-        source.volume = AudioManager.Instance.GetVolume();
-        Debug.Log($"Pan volume: {source.volume}");
-        if (source.volume >= 0.2f)
-            source.volume = 1f;
-        else
-            source.volume = 0f;
-        source.loop = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,7 +74,6 @@ public class Pan : MonoBehaviour
         else
         {
             _isDanger = true;
-            source.Play(); // play hot sound
         }
         yield return new WaitForSeconds(_dangerTime);
         _isDanger = false;
